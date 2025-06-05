@@ -17,6 +17,9 @@ Las caracteristicas principales a las de las redes tradicionales son:
 
 Esto da ventajas al modelo CNN para reconocer imagenes con alta precision y eficacia.
 
+Ejemplo práctico:
+Las CNN se utilizan en el reconocimiento facial, como en aplicaciones de seguridad donde el sistema identifica rostros en imágenes o videos en tiempo real, como en sistemas de cámaras de vigilancia. Un ejemplo es FaceNet, un sistema basado en CNN que realiza reconocimiento facial con alta precisión.
+
 
 Pregunta 2 - Arquitectura y Componentes
 
@@ -32,6 +35,12 @@ Las CNN tipicas incluyen varias capas, la cual cada una tiene un rol especifico:
 *4. Dense:* Son un conjunto de capas conectadas que ayuda con el procesamiento de las caracteristicas extraidas y generan la salida, como una clasificación.
 
 Esto sobresalta el orden y su importancia por que en cada capa prepara los datos para la siguiente. Si alguna de estas se encuentra alterada, el modelo no podría aprender correctamente ni hacer buenas predicciones.
+
+Ejemplo práctico:
+Un ejemplo de la aplicación de una CNN es el sistema de diagnóstico médico. Por ejemplo, un modelo como CheXNet utiliza una arquitectura CNN para clasificar imágenes de rayos X y detectar neumonía con una precisión similar a la de los radiólogos.
+
+Aplicación en TensorFlow:
+La implementación de una CNN en TensorFlow generalmente sigue un flujo básico de capas como Conv2D, MaxPooling2D, Flatten y Dense. TensorFlow ofrece una API de alto nivel como Keras para crear modelos fácilmente.
 
 
 *Pregunta 3 - Preprocesamiento de Datos
@@ -58,6 +67,18 @@ c) Mencione dos técnicas de data augmentation que podrían mejorar el rendimien
 *1. Rotación de imagenes* Consta de girar la imagen por un cierto ángulo. Esto ayuda a que el modelo reconozca objetos independientemente de la orientación, evolucionando la capacidad de generalización.
 
 *2. Desplazamiento (Translation)* Cosnta en realizar una serie de movimientos a las imagenes ligeramente en cualquier dirección. Lo cual ayuda al modelo tenga una compostura robuta y no dependa de la posición exacta de los objetos que hay dentro de la imagen.
+
+a) Normalización de píxeles
+Ejemplo práctico:
+El dataset MNIST, que se utiliza para el reconocimiento de dígitos manuscritos, se normaliza al rango [0,1] para facilitar el entrenamiento de los modelos y evitar que valores elevados en los píxeles interfieran con la convergencia del modelo.
+
+b) Conversión a formato "one-hot"
+Ejemplo práctico:
+En tareas de clasificación de texto, como la clasificación de correos electrónicos en categorías, las etiquetas (como "spam" o "no spam") son convertidas en vectores one-hot. Por ejemplo, "spam" se convierte en [1, 0] y "no spam" en [0, 1].
+
+c) Técnicas de Data Augmentation
+Ejemplo práctico:
+Rotación de imágenes es muy útil en el reconocimiento de caracteres manuscritos. El aumento de datos mediante rotaciones o traslaciones ayuda a que el modelo generalice mejor, ya que las letras pueden aparecer en cualquier ángulo.
 
 Pregunta 4 - Optimización y Entrenamiento
 
@@ -89,6 +110,15 @@ Esto ocurre cuando el modelo es ajustado demasiado a los datos de entrenamiento,
 *Early stopping:* Detener el entrenamiento cuando el rendimiento en el conjunto de validación comienza a disminuir, evitando que el modelo siga aprendiendo patrones irrelevantes.
 
 
+Ejemplo práctico:
+Un ejemplo de uso de la función de pérdida "categorical cross-entropy" es en la clasificación de imágenes de ropa (como en el dataset Fashion-MNIST), donde el modelo predice varias categorías como camisetas, zapatos, etc.
+
+Uso de optimizadores (Adam vs SGD):
+
+Adam es útil en tareas complejas como el entrenamiento de modelos de visión por computadora, donde el cambio en los datos puede ser significativo, como en el reconocimiento de objetos en imágenes.
+
+SGD es comúnmente utilizado en entrenamientos más simples donde las actualizaciones graduales son suficientes.
+
 Pregunta 5 - Transfer Learning
 El taller menciona el uso de MobileNetV2 pre-entrenado. Explique:
 
@@ -106,6 +136,9 @@ Porque es un modelo eficiente y ligero, diseñado específicamente para disposit
 ¿En qué situaciones sería preferible entrenar un modelo desde cero versus usar transfer learning?
 
 Cuando se dispone de un gran conjunto de datos específico para la tarea y se necesita un modelo completamente adaptado. En cambio, transfer learning es más útil cuando los datos disponibles son limitados o cuando se requiere un modelo rápido y eficiente, como en aplicaciones móviles o con pocos recursos.
+
+Ejemplo práctico:
+MobileNetV2 se usa en dispositivos móviles para aplicaciones como reconocimiento de objetos en tiempo real en cámaras de smartphones. Gracias a su eficiencia, puede realizar tareas de clasificación de imágenes sin afectar el rendimiento del dispositivo.
 
 
 Pregunta 6 - Procesamiento de Lenguaje Natural
@@ -134,6 +167,19 @@ c) Mencione tres técnicas que podrían mejorar la capacidad de comprensión del
 *Análisis de sentimientos:* Ayuda al chatbot a detectar emociones del usuario y responder de manera más empática.
 
 
+a) Lemmatización
+Ejemplo práctico:
+La lemmatización es útil en sistemas de chatbots para comprender mejor las consultas de los usuarios. Por ejemplo, si un usuario escribe "jugando" o "jugó", el modelo puede entender que ambas formas corresponden al verbo "jugar".
+
+b) Patrones de conversación
+Ejemplo práctico:
+En un asistente virtual, como Google Assistant, los patrones de conversación ayudan a identificar intenciones. Por ejemplo, si un usuario pregunta "¿Cuándo es mi próxima reunión?", el sistema interpreta que la intención es conocer la agenda.
+
+c) Técnicas para mejorar la comprensión del chatbot
+Ejemplo práctico:
+El uso de Word2Vec en un chatbot puede mejorar la comprensión del contexto de una conversación, ya que representa palabras similares de forma vectorial, ayudando al modelo a entender sinónimos.
+
+
 Pregunta 7 - Integración de Sistemas
 
 *R//*
@@ -146,6 +192,9 @@ El contexto se puede mantener mediante el uso de memorias de contexto que vincul
 
 Proponga una mejora específica para hacer más fluida esta integración.
 Una mejora sería implementar un módulo de atención, que permita al sistema identificar y priorizar la información más relevante tanto en las imágenes como en las conversaciones, facilitando una integración más natural y eficiente de ambos componentes.
+
+Ejemplo práctico:
+La integración de CNN y NLP se puede usar en sistemas de asistencia médica, donde una CNN analiza las imágenes de rayos X y un sistema NLP interpreta las consultas del paciente para dar recomendaciones.
 
 Pregunta 8 (8 puntos) - Análisis de Rendimiento
 
@@ -165,6 +214,9 @@ Precision: indica cuántas de las predicciones positivas son correctas. Es cruci
 
 Recall: mide cuántos de los casos positivos reales fueron correctamente identificados. Es importante cuando se necesita identificar la mayor cantidad posible de casos positivos, como en la detección de fraude.
 
+Ejemplo práctico:
+En la clasificación de imágenes médicas, como en la detección de cáncer en mamografías, la precisión es crucial porque cada falso negativo puede tener graves consecuencias, mientras que el recall es esencial para asegurar que se detecten todos los casos.
+
 Pregunta 9 - Casos de Uso Específicos
 
 *R//*
@@ -178,6 +230,10 @@ El sistema podría ser entrenado para detectar señales de alerta, como respuest
 Proponga una funcionalidad adicional que agregue valor al sistema.
 Una funcionalidad adicional sería la capacidad de análisis emocional, que permita al sistema detectar emociones en las respuestas del usuario y adaptar sus respuestas en consecuencia, proporcionando una interacción más personalizada y empática.
 
+Ejemplo práctico:
+En un chatbot de atención psicológica, el sistema debe ser capaz de detectar frases como "me siento deprimido" y escalar la situación a un profesional si es necesario. Esto se puede lograr utilizando técnicas de análisis de sentimientos.
+
+
 Pregunta 10 - Visión Futura
 
 *R//*
@@ -188,5 +244,6 @@ La integración de modelos de lenguaje avanzados como GPT o BERT sería la más 
 ¿Cómo impactarían los avances en modelos de lenguaje como GPT o BERT en este tipo de sistemas?
 Los avances en modelos como GPT o BERT permitirían una comprensión más profunda del lenguaje natural, mejorando la precisión en la interpretación de las intenciones del usuario, así como la fluidez y coherencia de las respuestas generadas, lo que haría a los sistemas más efectivos y adaptativos en diversas situaciones.
 
-
+Ejemplo práctico:
+El uso de modelos como GPT-3 o BERT podría mejorar la comprensión del lenguaje en sistemas como el de diagnóstico médico automatizado, proporcionando respuestas más precisas y contextuales para consultas complejas.
 
